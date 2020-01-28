@@ -1,0 +1,26 @@
+// dbConnection.query("INSERT INTO `customer` (`no`, `customer-id`, `date`, `id-origin-of-opportunity`, `name`,"+
+// "`id-bussiness-segment`, `id-country`, `address`, `phone-number`, `contact-name`, `contact-number`) VALUES "+
+// "('"+req.body.noCustomer+"', '"+customerId+"', '"+req.body.dateRegister+"', '"+req.body.originOfOpportunity+"',"+
+// "'"+req.body.customerName+"', '"+req.body.bussinessSegment+"', '"+req.body.country+"', '"+req.body.address+"',"+
+// "'"+req.body.phoneNumber+"', '"+req.body.contactName+"', '"+req.body.contactNumber+"');",function(err,res) {
+//     if (err) {
+//       console.log(err);
+//     }else {
+//       console.log(res);
+//     }
+// });
+res.render('customer/formDocumentCustomer',{
+  noCustomer : req.body.noCustomer,
+  dateRegister : req.body.dateRegister,
+  idOriginOfOpportunity : req.body.originOfOpportunity,
+  customerName : req.body.customerName,
+  idBussinessSegment : req.body.bussinessSegment,
+  address : req.body.address,
+  phoneNumber : req.body.phoneNumber,
+  contacName : req.body.contactName,
+  contactNumber : req.body.contactNumber,
+  nv : JSON.parse(JSON.stringify(rowsNoVendor)),
+  bs : JSON.parse(JSON.stringify(rowsBs)),
+  Ooo : JSON.parse(JSON.stringify(rowsOoo)),
+  customerId : customerId
+});

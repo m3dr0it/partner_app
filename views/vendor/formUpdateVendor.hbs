@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style-dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Petro 1 App</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/dashboard">PETRO ONE INDONESIA</a>
+      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="/logout">Sign out</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="/dashboard">
+                  <span data-feather="home"></span>
+                  Dashboard <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/customer/list-customer">
+                  <span data-feather="users"></span>
+                  Customer
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/vendor/list-vendor">
+                  <span data-feather="users"></span>
+                  Vendor
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/project/list-project">
+                  <span data-feather="users"></span>
+                  Project
+                </a>
+              </li>               
+            </ul>
+            </nav>
+
+            <div class="container-fluid">
+              <section class="row justify-content-center">
+                <section class="col-12 col-sm-8 col-md-6">
+                  <div class="header">
+                    <center>
+                    <h3>Change Vendor Information </h3>
+                  </center>
+                  </div>
+                <br>
+        
+        <form  action="/vendor/update/{{vendor.id}}" method="post">
+        <div class="form-group row" hidden>
+          <label for="no" class="col-sm-4 col-form-label">No</label>
+            <div class="col-sm-4">
+              <input class="form-control form-control-sm" type="text" name="no" readonly value={{noVendor}}>
+            </div>
+        </div>
+
+        <div class="form-group row" hidden>
+          <label for="noVendor" class="col-sm-4 col-form-label">No Vendor</label>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm" name="noVendor">
+                {{#each nv}}
+                <option value="1000">"{{no-vendor}}"</option>
+                {{/each}}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="vendorName" class="col-sm-4 col-form-label">Name</label>
+            <div class="col-sm-8">
+              <input class="form-control form-control-sm" value="{{vendor.name}}" type="text" name="vendorName" placeholder="Vendor Name">
+            </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="dateRegister" class="col-sm-4 col-form-label">Date Register</label>
+          <div class="col-sm-8">
+            <input class="form-control form-control-sm" value="{{date}}" type="date" name="dateRegister">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="serviceType" class="col-sm-4 col-form-label">Service Type</label>
+            <div class="col-sm-8">
+              <input class="form-control form-control-sm" value="{{vendor.service_type}}" type="text" name="serviceType" placeholder="Service Type">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+          <label for="bussinessSegment" class="col-sm-4 col-form-label">Bussiness Segment</label>
+          <div class="col-sm-8">
+            <select class="form-control form-control-sm" name="bussinessSegment">
+              {{#each bussiness_segment}}
+              <option value={{id}}>{{bussiness_segment}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-group row">
+          <label for="country" class="col-sm-4 col-form-label">Country</label>
+          <div class="col-sm-8">
+            <select class="form-control form-control-sm" name="country">
+            {{#each countries}}
+              <option value={{id}}>{{country}}</option>
+            {{/each}}
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-group row">
+          <label for="address" class="col-sm-4 col-form-label">Address</label>
+            <div class="col-sm-8">
+              <input class="form-control form-control-sm" value="{{vendor.address}}" type="text" name="address" placeholder="Address">
+            </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="number" class="col-sm-4 col-form-label">Number</label>
+            <div class="col-sm-8">
+              <input class="form-control form-control-sm" value="{{vendor.phone_number}}" type="text" name="phoneNumber" placeholder="Phone Number">
+            </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="contactName" class="col-sm-4 col-form-label">Contact Name</label>
+            <div class="col-sm-8">
+              <input class="form-control form-control-sm" type="text" value="{{vendor.contact_name}}" name="contactName" placeholder="Contact Name">
+            </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="contactNumber" class="col-sm-4 col-form-label">Contact Number</label>
+            <div class="col-sm-8">
+              <input class="form-control form-control-sm" type="text" name="contactNumber" value="{{vendor.contact_number}}" placeholder="Contact Number">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+          <label for="email" class="col-sm-4 col-form-label">Contact Email</label>
+            <div class="col-sm-8">
+              <input class="form-control form-control-sm" value="{{vendor.contact_email}}" type="email" name="contactEmail" placeholder="Email">
+            </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="email" class="col-sm-4 col-form-label">Contact Position</label>
+            <div class="col-sm-8">
+              <input class="form-control form-control-sm" type="text" value="{{vendor.contact_position}}" name="contactPosition" placeholder="Contact Position">
+            </div>
+        </div>
+
+        <input class="btn btn-success btn-sm" type="submit" value="Submit Change">
+        <div class="btn-group mr-2">
+            <a href="/vendor/delete/{{vendor.id}}" class="btn btn-danger btn-sm">Delete</a>
+        </div>
+      </fieldset>
+    </form>
+
+            </section>
+          </section>          
+          <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>
+      console.log(listCustomer)
+    </script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+
+    <!-- Graphs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <!-- <script>
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          datasets: [{
+            data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+    </script> -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

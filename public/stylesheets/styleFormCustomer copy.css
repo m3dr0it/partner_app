@@ -1,0 +1,16 @@
+html, body{
+  height: 100%;
+}
+.container-fluid{
+  margin-top: 50px;
+}
+.form-container{
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #000;
+}
+
+#cardHeader {
+  border: 0px;
+}

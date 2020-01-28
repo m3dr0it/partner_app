@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style-dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Petro 1 App</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/dashboard">PETRO ONE INDONESIA</a>
+      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="/logout">Sign out</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="/dashboard">
+                  <span data-feather="home"></span>
+                  Dashboard <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/customer/list-customer">
+                  <span data-feather="users"></span>
+                  Customer
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/vendor/list-vendor">
+                  <span data-feather="users"></span>
+                  Vendor
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/project/list-project">
+                  <span data-feather="users"></span>
+                  Project
+                </a>
+              </li>               
+            </ul>
+            </nav>
+                <div class="container-fluid">
+                <section class="row justify-content-center">
+                    <section class="col-12 col-sm-8 col-md-6">
+                    <h4>Vendor ID : {{vendorId}}</h4>
+                    <form action="/vendor/upload-document/{{vendorId}}" method="post" enctype="multipart/form-data">
+                    <legend>Upload File</legend>
+                        
+                        <label>NPWP : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="npwp" name="npwp" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+                
+                        <label>SIUP : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="siup" name="siup" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                        <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>                  
+                        
+                        <label>KTP Direksi : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="ktpDireksi" name="ktpDireksi" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+                        
+                        <label>NPWP Direksi : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="npwpDireksi" name="npwpDireksi" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+                        
+                        <label>SCAN Norek : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="scanNorek" name="norek" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+                        
+                        <label>Lisensi : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="license" name="license" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+                        
+                        <label>SKA KEMENKUMHAM : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="skakemenkumham" name="skakemenkumham" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+                        
+                        <label>SPT : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="spt" name="spt" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+
+                        <label>Experience List : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="experienceList" name="experienceList" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>              
+                        
+                        <label>Tool List : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="toolList" name="toolList" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+                        
+                        <label>TDP : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="td" name="tdp" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+                        
+                        <label>Akte : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="akte" name="akte" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+
+                        <label>SKT : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="skt" name="skt" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+                        
+                        <label>SPPKP : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="sppkp" name="sppkp" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>                                          
+                        
+                        <label>Location Permission : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="locationPermission" name="locationPermission" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+                        
+                        <label>Commercial Permission : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="commercialPermission" name="commercialPermission" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+                        
+                        <label>Employee List : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="employeeList" name="employeeList" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+
+                        <label>Company Profile : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="companyProfile" name="companyProfile" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+
+                        <label>Organization Structure : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="organizationStructure" name="organizationStructure" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+
+                        <label>Audit Result : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="auditResult" name="auditResult" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+                        
+                        <label>List Of Company Management : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="listOfCompanyManagement" name="listOfCompanyManagement" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+
+                        <label>Composition Of Share Ownership : </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="compositionOfShareOwnership" name="compositionOfShareOwnership" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+                        
+                        <input class="btn btn-success" type="submit" value="Upload">
+                    </form>
+                </section>
+            </section>
+          <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+    <script>
+      $('.custom-file-input').on('change', function() { 
+        let fileName = $(this).val().split('\\').pop(); 
+        $(this).next('.custom-file-label').addClass("selected").html(fileName); 
+      });
+    </script>
+
+    <!-- Graphs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <!-- <script>
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          datasets: [{
+            data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+    </script> -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
