@@ -44,10 +44,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const isLogin =async function(req,res,next){
-  console.log(req.session.passport)
-  const isLogin = await req.session.passport;
-  if(isLogin){
+const isLogin = async function(req,res,next){
+console.log(req.session.passport)
+const isLogin = await req.session.passport;
+if(isLogin){
   next()
   }else{
     res.redirect('/login')

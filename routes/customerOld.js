@@ -197,7 +197,7 @@ router.get('/delete/:custId',function(req,res,next){
       console.log(err)
     }else{
       console.log(result)
-      res.redirect('/customer/list-customer',);
+      res.redirect('/customer/list-customer');
     }
   })
 })
